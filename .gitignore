@@ -1,0 +1,6 @@
+build
+nbproject/private
+*.sgn
+*.dll
+lib
+hiscore.txt
