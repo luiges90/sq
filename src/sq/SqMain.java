@@ -170,10 +170,10 @@ public class SqMain extends BasicGameState
                     addedEnemies.addAll(j.destroy(this, true));
                     if (j.getGene().getLifetime() < 0 && j.isDestroyed()){
                         i.getOwner().scoreKill();
-                        if (RandomUtility.chance(5)){
+                        /*if (RandomUtility.chance(5)){
                             Pickup e = Pickup.createPickup(j.getX(), j.getY());
                             pickups.add(e);
-                        }
+                        }*/
                     }
                 }
             }
@@ -260,6 +260,11 @@ public class SqMain extends BasicGameState
         }
 
         wave++;
+        
+        if (wave % 5 == 0) {
+            player.gainLife();
+        }
+        
         enemies = new HashSet<>(waveGenerator.generateWave(wave, player, enemies, enemyGenes));
 
     }
